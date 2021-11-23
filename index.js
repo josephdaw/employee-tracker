@@ -16,7 +16,8 @@ const init = async () => {
                 'Add a Department',
                 'Add a Role',
                 'Add an Employee',
-                'Update an Employee'
+                'Update an Employee',
+                'Exit'
             ]
         }
     ])
@@ -29,6 +30,7 @@ const init = async () => {
     if (choice.action === 'Add a Role') { console.log("5") }
     if (choice.action === 'Add an Employee') { console.log("6") }
     if (choice.action === 'Update an Employee') { console.log("7") }
+    if (choice.action === 'Exit') { return console.log("Logged Out") }
 }
 
 init();

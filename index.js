@@ -1,8 +1,15 @@
 require('dotenv').config();
 
 const inquirer = require("inquirer");
+const art = require("ascii-art");
 
 const init = async () => {
+    try{
+        let rendered = await art.font("Some Text", 'doom').completed()
+        //rendered is the ascii
+    }catch(err){
+        console.log("The following error occured with your artwork: ", err)
+    }
     const choice = await inquirer
     .prompt([
         {

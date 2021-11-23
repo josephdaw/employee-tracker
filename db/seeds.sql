@@ -1,22 +1,49 @@
 USE company_db;
 
-INSERT INTO departments(name)
-VALUES ("Sales"),
-  ("Engineering"),
-  ("Finance"),
-  ("Legal");
+INSERT INTO departments(id, name)
+VALUES 
+  (1, "Sales"),
+  (2, "Engineering"),
+  (3, "Finance"),
+  (4, "Legal");
        
-INSERT INTO roles(title, salary, department_id)
-VALUES ("Salesperson", 80000, 1),
-  ("Lead Engineer", 150000, 2),
-  ("Software Engineer", 120000, 2),
-  ("Lawyer", 150000, 2),
-  ("Sales Team Lead", 180000, 4),
-  ("Legal Team Lead", 250000, 4);
 
-INSERT INTO employees(first_name, last_name, role_id, manager_id)
-VALUES ("Gavin", "Cruz", 5, null),
-  ("Alonzo", "Bauer", 2, null),
-  ("Haley", "Evans", 6, null),
-  ("Elsa", "Bray", 4, 3),
-  ("James", "Atkinson", 1, 1);
+INSERT INTO roles(id, title, salary, department_id)
+VALUES 
+  (1, "Sales Team Lead", 180000, 1),
+  (2, "Salesperson", 80000, 1),
+  (3, "Lead Engineer", 150000, 2),
+  (4, "Software Engineer", 120000, 2),
+  (5, "Junior Engineer", 80000, 2),
+  (6, "Finance Team Lead", 180000, 3),
+  (7, "Accounts Manager", 90000, 3),
+  (8, "Payroll Officer", 70000, 3),
+  (9, "Legal Team Lead", 250000, 4),
+  (10, "Lawyer", 150000, 4),
+  (11, "Paralegal", 75000, 4);
+
+
+INSERT INTO employees(id, first_name, last_name, role_id, manager_id)
+VALUES 
+  (1, "Gavin", "Cruz", 1, null),
+  (2, "Alonzo", "Bauer", 3, null),
+  (3, "Haley", "Evans", 6, null),
+  (4, "Elsa", "Bray", 9, null),
+  (5, "James", "Atkinson", 2, 1),
+  (6, "Maxine", "Joyner", 8, 3),
+  (7, "Eliott", "Dumas", 7, 3),
+  (8, "Buck", "Abney", 4, 2),
+  (9, "Anette", "Moul", 10, 4),
+  (10, "James", "Woodcock", 5, 2);
+  
+
+-- SELECT 
+-- concat(employees.first_name," ",employees.last_name) as employee_full_name, 
+-- concat(managers.first_name," ",managers.last_name) AS manager_full_name, 
+-- roles.title AS role,
+-- departments.name AS department,
+-- roles.salary
+-- FROM employees LEFT JOIN employees managers 
+-- ON employees.manager_id=managers.id
+-- JOIN roles ON employees.role_id = roles.id
+-- JOIN departments ON roles.department_id = departments.id;

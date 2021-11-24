@@ -34,7 +34,12 @@ const init = async () => {
 
     if (choice.action === 'View All Roles') { console.log("2") }
     if (choice.action === 'View All Employees') { console.log("3") }
-    if (choice.action === 'Add a Department') { console.log("4") }
+
+    if (choice.action === 'Add a Department') {
+        await department.addNew()
+        init()
+    }
+
     if (choice.action === 'Add a Role') { console.log("5") }
     if (choice.action === 'Add an Employee') { console.log("6") }
     if (choice.action === 'Update an Employee') { console.log("7") }

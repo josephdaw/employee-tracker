@@ -42,25 +42,25 @@ const init = async () => {
 
     if (choice.action === 'Add a Department') {
         await department.addNew();
-        await department.viewAll();
+        // await department.viewAll();
         init();
     }
 
     if (choice.action === 'Add a Role') { 
         await role.addNew();
-        await role.viewAll();
+        // await role.viewAll();
         init();
      }
 
     if (choice.action === 'Add an Employee') { 
         await employee.addNew();
-        await employee.viewAll();
+        // await employee.viewAll();
         init();
      }
 
     if (choice.action === 'Update an Employee Role') { 
         await employee.updateRole();
-        await employee.viewAll();
+        // await employee.viewAll();
         init(); }
 
     if (choice.action === 'Exit') { 

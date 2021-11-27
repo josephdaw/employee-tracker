@@ -4,6 +4,7 @@ const mysql = require('mysql2');
 
 const department = require('./lib/department')
 const role = require('./lib/role')
+const employee = require('./lib/employee')
 
 
 const init = async () => {
@@ -26,29 +27,41 @@ const init = async () => {
             }
         ])
 
-    // if (choice.role === 'Engineer') { await this.addEngineer() }
     if (choice.action === 'View All Departments') {
-        await department.viewAll()
-        init()
+        await department.viewAll();
+        init();
     }
 
     if (choice.action === 'View All Roles') { 
-        await role.viewAll()
-        init()
+        await role.viewAll();
+        init();
      }
-    if (choice.action === 'View All Employees') { console.log("3") }
+
+    if (choice.action === 'View All Employees') { 
+        await employee.viewAll();
+        init();
+     }
 
     if (choice.action === 'Add a Department') {
-        await department.addNew()
-        init()
+        await department.addNew();
+        init();
     }
 
     if (choice.action === 'Add a Role') { 
-        await role.addNew()
-        init() }
-    if (choice.action === 'Add an Employee') { console.log("6") }
+        await role.addNew();
+        init();
+     }
+
+    if (choice.action === 'Add an Employee') { 
+        await employee.addNew();
+        init();
+     }
+
     if (choice.action === 'Update an Employee') { console.log("7") }
-    if (choice.action === 'Exit') { return console.log("Logged Out") }
+
+    if (choice.action === 'Exit') { 
+        return console.log("Logged Out") 
+    }
 }
 
 

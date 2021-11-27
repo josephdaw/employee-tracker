@@ -1,6 +1,5 @@
 
 const inquirer = require("inquirer");
-const mysql = require('mysql2');
 
 const department = require('./lib/department')
 const role = require('./lib/role')

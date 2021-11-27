@@ -1,4 +1,3 @@
-
 const inquirer = require("inquirer");
 
 const department = require('./lib/department')
@@ -20,7 +19,7 @@ const init = async () => {
                     'Add a Department',
                     'Add a Role',
                     'Add an Employee',
-                    'Update an Employee',
+                    'Update an Employee Role',
                     'Exit'
                 ]
             }
@@ -43,20 +42,26 @@ const init = async () => {
 
     if (choice.action === 'Add a Department') {
         await department.addNew();
+        await department.viewAll();
         init();
     }
 
     if (choice.action === 'Add a Role') { 
         await role.addNew();
+        await role.viewAll();
         init();
      }
 
     if (choice.action === 'Add an Employee') { 
         await employee.addNew();
+        await employee.viewAll();
         init();
      }
 
-    if (choice.action === 'Update an Employee') { console.log("7") }
+    if (choice.action === 'Update an Employee Role') { 
+        await employee.updateRole();
+        await employee.viewAll();
+        init(); }
 
     if (choice.action === 'Exit') { 
         return console.log("Logged Out") 

@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const department = require('./lib/department')
 const role = require('./lib/role')
 const employee = require('./lib/employee')
+const cTable = require('console.table');
 
 
 const init = async () => {
@@ -20,6 +21,7 @@ const init = async () => {
                     'Add a Role',
                     'Add an Employee',
                     'Update an Employee Role',
+                    'View Department Salary Budget',
                     'Exit'
                 ]
             }
@@ -30,15 +32,15 @@ const init = async () => {
         init();
     }
 
-    if (choice.action === 'View All Roles') { 
+    if (choice.action === 'View All Roles') {
         await role.viewAll();
         init();
-     }
+    }
 
-    if (choice.action === 'View All Employees') { 
+    if (choice.action === 'View All Employees') {
         await employee.viewAll();
         init();
-     }
+    }
 
     if (choice.action === 'Add a Department') {
         await department.addNew();
@@ -46,25 +48,34 @@ const init = async () => {
         init();
     }
 
-    if (choice.action === 'Add a Role') { 
+    if (choice.action === 'Add a Role') {
         await role.addNew();
         // await role.viewAll();
         init();
-     }
+    }
 
-    if (choice.action === 'Add an Employee') { 
+    if (choice.action === 'Add an Employee') {
         await employee.addNew();
         // await employee.viewAll();
         init();
-     }
+    }
 
-    if (choice.action === 'Update an Employee Role') { 
+    if (choice.action === 'Update an Employee Role') {
         await employee.updateRole();
         // await employee.viewAll();
-        init(); }
+        init();
+    }
 
-    if (choice.action === 'Exit') { 
-        return console.log("Logged Out") 
+    if (choice.action === 'View Department Salary Budget') {
+        await department.utilisedBudget();
+        // await employee.viewAll();
+        init();
+    }
+
+    
+
+    if (choice.action === 'Exit') {
+        return console.log("Logged Out")
     }
 }
 

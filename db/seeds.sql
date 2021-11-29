@@ -35,15 +35,3 @@ VALUES
   (8, "Buck", "Abney", 4, 2),
   (9, "Anette", "Moul", 10, 4),
   (10, "James", "Woodcock", 5, 2);
-  
-
--- SELECT 
--- concat(employees.first_name," ",employees.last_name) as employee_full_name, 
--- concat(managers.first_name," ",managers.last_name) AS manager_full_name, 
--- roles.title AS role,
--- departments.name AS department,
--- roles.salary
--- FROM employees LEFT JOIN employees managers 
--- ON employees.manager_id=managers.id
--- JOIN roles ON employees.role_id = roles.id
--- JOIN departments ON roles.department_id = departments.id;
